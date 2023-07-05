@@ -9,7 +9,12 @@ public class Player2 : MonoBehaviour
     [SerializeField] private float _jamp = 1000f;
     private float _inputX;
     bool _isjamp = false;
+    Vector3 _initPos;
     // Update is called once per frame
+    private void Start()
+    {
+        _initPos = transform.position;
+    }
     void Update()
     {
         _inputX = Input.GetAxisRaw("Horizontal2");//ÉvÉåÉCÉÑÅ[ëÄçÏ
@@ -30,5 +35,9 @@ public class Player2 : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _isjamp = false;
+        if (collision.gameObject.tag == "Block")
+        {
+            transform.position = _initPos;
+        }
     }
 }

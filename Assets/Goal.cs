@@ -19,12 +19,13 @@ public class Goal : MonoBehaviour
         // まだゴールしておらず
         if (!m_isGoal)
         {
-            // 名前に「Player」が含まれるオブジェクトと当たったら
-            if (other.name.Contains("Player"))
+            if (other.name.Contains("Player"))// 名前に「Player」が含まれるオブジェクトと当たったら
             { 
                 // 何回もゴールしないように、ゴールしたことを記憶しておく
                 m_isGoal = true;
                 _goalText.gameObject.SetActive(true);
+                Time.timeScale = 0f;
+
             }
         }
     }
